@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbsinavogrenciModelStoreContainer" CdmEntityContainer="dbsinavogrenciEntities">
+    <EntitySetMapping Name="dersler">
+      <EntityTypeMapping TypeName="dbsinavogrenciModel.dersler">
+        <MappingFragment StoreEntitySet="dersler">
+          <ScalarProperty Name="ders_id" ColumnName="ders_id" />
+          <ScalarProperty Name="ders_ad" ColumnName="ders_ad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_notlar">
+      <EntityTypeMapping TypeName="dbsinavogrenciModel.tbl_notlar">
+        <MappingFragment StoreEntitySet="tbl_notlar">
+          <ScalarProperty Name="notid" ColumnName="notid" />
+          <ScalarProperty Name="ogr" ColumnName="ogr" />
+          <ScalarProperty Name="ders" ColumnName="ders" />
+          <ScalarProperty Name="sınav1" ColumnName="sınav1" />
+          <ScalarProperty Name="sınav2" ColumnName="sınav2" />
+          <ScalarProperty Name="sınav3" ColumnName="sınav3" />
+          <ScalarProperty Name="ortalama" ColumnName="ortalama" />
+          <ScalarProperty Name="durum" ColumnName="durum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblkulupler">
+      <EntityTypeMapping TypeName="dbsinavogrenciModel.tblkulupler">
+        <MappingFragment StoreEntitySet="tblkulupler">
+          <ScalarProperty Name="kulup_id" ColumnName="kulup_id" />
+          <ScalarProperty Name="kulup_ad" ColumnName="kulup_ad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblogrenci">
+      <EntityTypeMapping TypeName="dbsinavogrenciModel.tblogrenci">
+        <MappingFragment StoreEntitySet="tblogrenci">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ad" ColumnName="ad" />
+          <ScalarProperty Name="soyad" ColumnName="soyad" />
+          <ScalarProperty Name="kulup_id" ColumnName="kulup_id" />
+          <ScalarProperty Name="fotograf" ColumnName="fotograf" />
+          <ScalarProperty Name="sehir" ColumnName="sehir" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="kulupler" FunctionName="dbsinavogrenciModel.Store.kulupler">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="dbsinavogrenciModel.kulupler_Result">
+          <ScalarProperty Name="ad" ColumnName="ad" />
+          <ScalarProperty Name="soyad" ColumnName="soyad" />
+          <ScalarProperty Name="sehir" ColumnName="sehir" />
+          <ScalarProperty Name="kulup_ad" ColumnName="kulup_ad" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

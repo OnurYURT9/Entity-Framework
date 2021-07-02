@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbsinavogrenciModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="dersler">
+    <Key>
+      <PropertyRef Name="ders_id" />
+    </Key>
+    <Property Name="ders_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ders_ad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbl_notlar" Relationship="Self.FK_tbl_notlar_dersler" FromRole="dersler" ToRole="tbl_notlar" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tbl_notlar">
+    <Key>
+      <PropertyRef Name="notid" />
+    </Key>
+    <Property Name="notid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ogr" Type="Int32" />
+    <Property Name="ders" Type="Int32" />
+    <Property Name="sınav1" Type="Int16" />
+    <Property Name="sınav2" Type="Int16" />
+    <Property Name="sınav3" Type="Int16" />
+    <Property Name="ortalama" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="durum" Type="Boolean" />
+    <NavigationProperty Name="dersler" Relationship="Self.FK_tbl_notlar_dersler" FromRole="tbl_notlar" ToRole="dersler" />
+    <NavigationProperty Name="tblogrenci" Relationship="Self.FK_tbl_notlar_tblogrenci" FromRole="tbl_notlar" ToRole="tblogrenci" />
+  </EntityType>
+  <EntityType Name="tblogrenci">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fotograf" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbl_notlar" Relationship="Self.FK_tbl_notlar_tblogrenci" FromRole="tblogrenci" ToRole="tbl_notlar" />
+  </EntityType>
+  <Association Name="FK_tbl_notlar_dersler">
+    <End Role="dersler" Type="Self.dersler" Multiplicity="0..1" />
+    <End Role="tbl_notlar" Type="Self.tbl_notlar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dersler">
+        <PropertyRef Name="ders_id" />
+      </Principal>
+      <Dependent Role="tbl_notlar">
+        <PropertyRef Name="ders" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_notlar_tblogrenci">
+    <End Role="tblogrenci" Type="Self.tblogrenci" Multiplicity="0..1" />
+    <End Role="tbl_notlar" Type="Self.tbl_notlar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblogrenci">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tbl_notlar">
+        <PropertyRef Name="ogr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="dbsinavogrenciEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="dersler" EntityType="Self.dersler" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="tbl_notlar" EntityType="Self.tbl_notlar" />
+    <EntitySet Name="tblogrenci" EntityType="Self.tblogrenci" />
+    <AssociationSet Name="FK_tbl_notlar_dersler" Association="Self.FK_tbl_notlar_dersler">
+      <End Role="dersler" EntitySet="dersler" />
+      <End Role="tbl_notlar" EntitySet="tbl_notlar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_notlar_tblogrenci" Association="Self.FK_tbl_notlar_tblogrenci">
+      <End Role="tblogrenci" EntitySet="tblogrenci" />
+      <End Role="tbl_notlar" EntitySet="tbl_notlar" />
+    </AssociationSet>
+    <EntitySet Name="tblkulupler" EntityType="dbsinavogrenciModel.tblkulupler" />
+    <FunctionImport Name="notlistesi" ReturnType="Collection(dbsinavogrenciModel.notlistesi_Result)" />
+  </EntityContainer>
+  <EntityType Name="tblkulupler">
+    <Key>
+      <PropertyRef Name="kulup_id" />
+    </Key>
+    <Property Name="kulup_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="kulup_ad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="notlistesi_Result">
+    <Property Type="Int32" Name="notid" Nullable="false" />
+    <Property Type="String" Name="Ad_Soyad" Nullable="true" MaxLength="101" />
+    <Property Type="String" Name="ders_ad" Nullable="true" MaxLength="50" />
+    <Property Type="Int16" Name="sınav1" Nullable="true" />
+    <Property Type="Int16" Name="sınav2" Nullable="true" />
+    <Property Type="Int16" Name="sınav3" Nullable="true" />
+    <Property Type="Decimal" Name="ortalama" Nullable="true" Precision="5" Scale="2" />
+    <Property Type="Boolean" Name="durum" Nullable="true" />
+  </ComplexType>
+</Schema>

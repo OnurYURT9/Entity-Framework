@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbsinavogrenciModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="dersler">
+    <Key>
+      <PropertyRef Name="ders_id" />
+    </Key>
+    <Property Name="ders_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ders_ad" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="tbl_notlar">
+    <Key>
+      <PropertyRef Name="notid" />
+    </Key>
+    <Property Name="notid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ogr" Type="int" />
+    <Property Name="ders" Type="int" />
+    <Property Name="sınav1" Type="smallint" />
+    <Property Name="sınav2" Type="smallint" />
+    <Property Name="sınav3" Type="smallint" />
+    <Property Name="ortalama" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="durum" Type="bit" />
+  </EntityType>
+  <EntityType Name="tblkulupler">
+    <Key>
+      <PropertyRef Name="kulup_id" />
+    </Key>
+    <Property Name="kulup_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="kulup_ad" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblogrenci">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ad" Type="varchar" MaxLength="50" />
+    <Property Name="soyad" Type="varchar" MaxLength="50" />
+    <Property Name="fotograf" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <Association Name="FK_tbl_notlar_dersler">
+    <End Role="dersler" Type="Self.dersler" Multiplicity="0..1" />
+    <End Role="tbl_notlar" Type="Self.tbl_notlar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dersler">
+        <PropertyRef Name="ders_id" />
+      </Principal>
+      <Dependent Role="tbl_notlar">
+        <PropertyRef Name="ders" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_notlar_tblogrenci">
+    <End Role="tblogrenci" Type="Self.tblogrenci" Multiplicity="0..1" />
+    <End Role="tbl_notlar" Type="Self.tbl_notlar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblogrenci">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tbl_notlar">
+        <PropertyRef Name="ogr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="notlistesi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="dbsinavogrenciModelStoreContainer">
+    <EntitySet Name="dersler" EntityType="Self.dersler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_notlar" EntityType="Self.tbl_notlar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblkulupler" EntityType="Self.tblkulupler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblogrenci" EntityType="Self.tblogrenci" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_tbl_notlar_dersler" Association="Self.FK_tbl_notlar_dersler">
+      <End Role="dersler" EntitySet="dersler" />
+      <End Role="tbl_notlar" EntitySet="tbl_notlar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_notlar_tblogrenci" Association="Self.FK_tbl_notlar_tblogrenci">
+      <End Role="tblogrenci" EntitySet="tblogrenci" />
+      <End Role="tbl_notlar" EntitySet="tbl_notlar" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

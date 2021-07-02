@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0e7c61b4875a42f9bc4f59394a9aa447" Name="Diagram1">
+        <EntityTypeShape EntityType="dbsinavogrenciModel.dersler" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbsinavogrenciModel.tbl_notlar" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbsinavogrenciModel.tblkulupler" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbsinavogrenciModel.tblogrenci" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <AssociationConnector Association="dbsinavogrenciModel.FK_tbl_notlar_dersler" ManuallyRouted="false" />
+        <AssociationConnector Association="dbsinavogrenciModel.FK_tbl_notlar_tblogrenci" ManuallyRouted="false" />
+        <AssociationConnector Association="dbsinavogrenciModel.FK_tblogrenci_tblkulupler" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

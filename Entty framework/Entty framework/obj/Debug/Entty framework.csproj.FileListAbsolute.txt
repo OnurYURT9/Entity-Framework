@@ -1,0 +1,16 @@
+C:\Users\Ali Güral Lojman\source\repos\Entty framework\Entty framework\bin\Debug\Entty framework.exe.config
+C:\Users\Ali Güral Lojman\source\repos\Entty framework\Entty framework\bin\Debug\Entty framework.exe
+C:\Users\Ali Güral Lojman\source\repos\Entty framework\Entty framework\bin\Debug\Entty framework.pdb
+C:\Users\Ali Güral Lojman\source\repos\Entty framework\Entty framework\bin\Debug\EntityFramework.dll
+C:\Users\Ali Güral Lojman\source\repos\Entty framework\Entty framework\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Ali Güral Lojman\source\repos\Entty framework\Entty framework\bin\Debug\EntityFramework.xml
+C:\Users\Ali Güral Lojman\source\repos\Entty framework\Entty framework\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Ali Güral Lojman\source\repos\Entty framework\Entty framework\obj\Debug\Entty framework.csprojAssemblyReference.cache
+C:\Users\Ali Güral Lojman\source\repos\Entty framework\Entty framework\obj\Debug\Entty_framework.Form1.resources
+C:\Users\Ali Güral Lojman\source\repos\Entty framework\Entty framework\obj\Debug\Entty_framework.Properties.Resources.resources
+C:\Users\Ali Güral Lojman\source\repos\Entty framework\Entty framework\obj\Debug\Entty framework.csproj.GenerateResource.cache
+C:\Users\Ali Güral Lojman\source\repos\Entty framework\Entty framework\obj\Debug\Entty framework.csproj.CoreCompileInputs.cache
+C:\Users\Ali Güral Lojman\source\repos\Entty framework\Entty framework\obj\Debug\Entty framework.csproj.CopyComplete
+C:\Users\Ali Güral Lojman\source\repos\Entty framework\Entty framework\obj\Debug\Entty framework.exe
+C:\Users\Ali Güral Lojman\source\repos\Entty framework\Entty framework\obj\Debug\Entty framework.pdb
+C:\Users\Ali Güral Lojman\source\repos\Entty framework\Entty framework\obj\Debug\Entty_framework.Form2.resources
